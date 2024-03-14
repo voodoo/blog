@@ -9,7 +9,7 @@
 </div>
 <div style="display:none" id="hiddenAnswer">{ai}</div>
 <script>
-    function showAnswer(answer) {
+    function showAnswer(answer: string) {
         var answerElement = document.getElementById('Answer');
          if (answerElement) {
              answerElement.innerHTML = '<div class="button"><h2 class="big">' + answer + '</h2></div>';

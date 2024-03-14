@@ -10,24 +10,34 @@
 <div style="display:none" id="hiddenAnswer">{ai}</div>
 <script>
     function showAnswer(answer) {
-        document.getElementById('Answer').innerHTML = '<div class="button"><h2 class="big">' + answer + '</h2></div>';
+        var answerElement = document.getElementById('Answer');
+         if (answerElement) {
+             answerElement.innerHTML = '<div class="button"><h2 class="big">' + answer + '</h2></div>';
+         }
     }
-    var isAi = document.getElementById('hiddenAnswer').innerText === 'true'
+    var hiddenAnswerElement = document.getElementById('hiddenAnswer');
+    var isAi = hiddenAnswerElement ? hiddenAnswerElement.innerText === 'true' : false;
     // click yesAi
-    document.getElementById('yesAi').addEventListener('click', function() {
+    var yesAiElement = document.getElementById('yesAi');
+    if (yesAiElement) {
+        yesAiElement.addEventListener('click', function() {
       if(isAi) {
         showAnswer('Correct!')
        } else {
         showAnswer('Wrong!')
        }  
-    }); 
-    document.getElementById('noAi').addEventListener('click', function() {
+    });
+    }
+    var noAiElement = document.getElementById('noAi');
+    if (noAiElement) {
+        noAiElement.addEventListener('click', function() {
        if(!isAi) {
         showAnswer('Correct!')
        } else {
         showAnswer('Wrong!')
        }    
-    });     
+    });
+    }
 </script>
 
 <style>

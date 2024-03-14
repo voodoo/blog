@@ -1,0 +1,52 @@
+---
+ const {ai} = Astro.props
+
+---
+<div style="text-align:center" id="Answer">
+  <h1>Is this AI?</h1>
+  <div class="button button-yes" id="yesAi">Yes, is AI. </div>
+  <div class="button button-no" id="noAi">Nope</div>
+</div>
+<div style="display:none" id="hiddenAnswer">{ai}</div>
+<script>
+    function showAnswer(answer) {
+        document.getElementById('Answer').innerHTML = '<div class="button"><h2 class="big">' + answer + '</h2></div>';
+    }
+    var isAi = document.getElementById('hiddenAnswer').innerText === 'true'
+    // click yesAi
+    document.getElementById('yesAi').addEventListener('click', function() {
+      if(isAi) {
+        showAnswer('Correct!')
+       } else {
+        showAnswer('Wrong!')
+       }  
+    }); 
+    document.getElementById('noAi').addEventListener('click', function() {
+       if(!isAi) {
+        showAnswer('Correct!')
+       } else {
+        showAnswer('Wrong!')
+       }    
+    });     
+</script>
+
+<style>
+    .big {
+        font-size: 3em;
+        
+    }   
+    .button {
+        display:inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 1px solid #000;
+        cursor: pointer;    
+
+    }
+    .button-yes {
+        background:aquamarine
+    }
+    .button-no {
+        background:rgb(255, 176, 127)
+    }
+</style>

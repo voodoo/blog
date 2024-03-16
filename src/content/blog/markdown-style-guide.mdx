@@ -2,14 +2,15 @@
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jul 01 2022'
-image: '/src/images/moon.webp'
-ai: false
+image: '/src/images/rider.webp'
+ai: true
+next: /blog/blog/using-mdx
 ---
 
 
 import Is from '../../components/Is.astro';
 
-<Is ai={frontmatter.ai}></Is>
+<Is ai={frontmatter.ai} next={frontmatter.next}></Is>
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 

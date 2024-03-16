@@ -1,14 +1,15 @@
 ---
-title: 'Making Third post mdx'
+title: 'Making Third post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 22 2022'
-image: '/src/images/moon.webp'
+image: '/src/images/kandy.png'
 ai: false
+next: /blog/blog/markdown-style-guide
 ---
 
 import Is from '../../components/Is.astro';
 
-<Is ai={frontmatter.ai}></Is>
+<Is ai={frontmatter.ai} next={frontmatter.next}></Is>
 
 # Making
 

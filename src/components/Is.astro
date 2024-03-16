@@ -1,20 +1,31 @@
 ---
- const {ai} = Astro.props
-
+ const {ai, next} = Astro.props
 ---
+
 <div style="text-align:center" id="Answer">
-  <h1>Is this AI?</h1>
-  <div class="button button-yes" id="yesAi">Yes, is AI. </div>
-  <div class="button button-no" id="noAi">Nope</div>
+    <img src="/src/images/sys/top.png" id="yesAi" alt="top" /><br/> 
+    <img src="/src/images/sys/bottom.png" id="noAi" alt="top" />
 </div>
 <div style="display:none" id="hiddenAnswer">{ai}</div>
+<div style="display:none" id="hiddenNext">{next}</div>
 <script>
     function showAnswer(answer: string) {
         var answerElement = document.getElementById('Answer');
          if (answerElement) {
-             answerElement.innerHTML = '<div class="button"><h2 class="big">' + answer + '</h2></div>';
+             answerElement.innerHTML = "<h1>" + answer + "</h1>";
+             answerElement.innerHTML += `<button id=btnNext>Next</button>`;
          }
+         var hiddenNext = document.getElementById('hiddenNext');
+         
+         //alert(hiddenNext?.innerText);
+
+         var nextBtn = document.getElementById('btnNext') 
+             if(nextBtn) 
+                nextBtn.addEventListener('click', function() {   
+                    if(hiddenNext) document.location.href = hiddenNext.innerText;
+                })
     }
+
     var hiddenAnswerElement = document.getElementById('hiddenAnswer');
     var isAi = hiddenAnswerElement ? hiddenAnswerElement.innerText === 'true' : false;
     // click yesAi
